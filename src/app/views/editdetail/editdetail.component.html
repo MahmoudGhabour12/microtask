@@ -1,0 +1,22 @@
+<section class="container border bg-light text-dark mt-5 p-3">
+    <h2 class="h2"> Edit detail</h2>
+    <form #myForm="ngForm" (ngSubmit)='EditMydetail(myForm.value)'>
+      <div class="form-group">
+        <input class="form-control p-2"
+        placeholder="Enter Your Email" name="text"
+        [(ngModel)]='detail.text'>
+      </div>
+      <div class="form-group">
+        <input class="form-control p-2"
+        placeholder="Enter Your Email" name="done"
+        [(ngModel)]='detail.done'>
+      </div>
+     
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Edit Detail</button>
+      </div>
+  
+    </form>
+  </section>
+  

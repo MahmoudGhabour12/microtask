@@ -1,0 +1,23 @@
+body {
+    padding-top: 56px;
+  }
+  .active{
+    background-color:white ;
+         color : black !important;
+       font-weight: 600 !important;
+} 
+.main-nav {
+  background-color: crimson;
+
+}
+.main-nav li{
+  padding: 0rem;
+    width: 6rem;
+}
+.main-nav li a{ 
+  text-align: center;
+color:  white;}
+.main-nav li a:hover{
+  color: black;
+ }
+  

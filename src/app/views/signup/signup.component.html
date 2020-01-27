@@ -1,0 +1,148 @@
+<app-main-navbar></app-main-navbar>
+<section class="container-fluid min-high">
+    <!-- <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">Register</h2>
+        </div>
+        <div class="col-12 mb-2">
+
+            <form #myForm="ngForm" (ngSubmit)='AddUser(myForm.value)'>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Name</label>
+                        <input type="text" class="form-control" id="inputName" placeholder="your name" ngModel
+                            name="user_name" #name="ngModel" required> -->
+                        <!-- <div class="alert alert-danger" *ngIf="name.invalid && name.touched"> Invalid Name</div> -->
+                    <!-- </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email" ngModel
+                            name="user_email" #email="ngModel" required email> -->
+                        <!-- <div class="alert alert-danger" *ngIf="email.errors?.required && email.touched"> no email</div>
+                    <div class="alert alert-danger" *ngIf="email.errors?.email && email.touched"> valid email</div> -->
+                   <!--  </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">password</label>
+                        <input type="password" class="form-control" id="inputpassword" placeholder="password" ngModel
+                            name="user_password" #password="ngModel" required minlength="6" maxlength="20"> -->
+                        <!-- <div class="alert alert-danger" *ngIf="password.errors?.required && password.touched">no password
+                    </div>
+                    <div class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched"> Invalid
+                        password</div> -->
+                    <!-- </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">confirm password</label>
+                        <input type="password" class="form-control" id="inputconfrim" placeholder="confirm password"
+                            ngModel name="conpassword" #conpassword="ngModel" required> -->
+                        <!-- <div class="alert alert-danger" *ngIf="conpassword.errors?.required && conpassword.touched">wrong
+                        password</div>
+                    <div class="alert alert-danger" *ngIf="password.value != conpassword.value && conpassword.touched">
+                        Invalid confirm password</div> -->
+
+                    <!-- </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Phone</label>
+                        <input type="number" class="form-control" id="inpuphone" placeholder="phone" ngModel
+                            name="user_phone" #phone="ngModel" required number> -->
+                        <!-- <div class="alert alert-danger" *ngIf="phone.errors?.number && phone.touched">must be anumber</div> -->
+
+                    <!-- </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Age</label>
+                        <input type="number" class="form-control" id="inpuphone" placeholder="phone" ngModel
+                            name="user_age" #phone="ngModel" required number> -->
+                        <!-- <div class="alert alert-danger" *ngIf="age.errors?.number && age.touched">must be anumber</div> -->
+
+                   <!--  </div>
+
+                   <div class="form-group col-md-6">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" ngModel
+                            name="user_address" #address="ngModel" required>
+                         <div class="alert alert-danger" *ngIf="address.errors?.required && address.touched">must inter
+                        address</div> -->
+                    <!-- </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+            </form>
+        </div>
+    </div> -->
+
+
+
+
+
+    <div class="card m-3">
+        <h5 class="card-header">Register </h5>
+        <div class="card-body">
+            <form [formGroup]="registerForm" #myForm (ngSubmit)='onSubmit()'>
+                <div class="form-row">
+    
+    
+                    <div class="form-group col-5">
+                        <label>Your Name</label>
+                        <input type="text" formControlName="user_name" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.user_name.errors }"  ngModel />
+                        <div *ngIf="submitted && f.user_name.errors" class="invalid-feedback">
+                            <div *ngIf="f.user_name.errors.required">Your Name is required</div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" formControlName="user_email" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.user_email.errors }" ngModel />
+                        <div *ngIf="submitted && f.user_email.errors" class="invalid-feedback">
+                            <div *ngIf="f.user_email.errors.required">Email is required</div>
+                            <div *ngIf="f.user_email.errors.email">Email must be a valid email address</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label>Password</label>
+                        <input type="password" formControlName="user_password" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.user_password.errors }" ngModel/>
+                        <div *ngIf="submitted && f.user_password.errors" class="invalid-feedback">
+                            <div *ngIf="f.user_password.errors.required">Password is required</div>
+                            <div *ngIf="f.user_password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label>Confirm Password</label>
+                        <input type="password" formControlName="confirmPassword" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                            <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-check">
+                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                        [ngClass]="{ 'is-invalid': submitted && f.acceptTerms.errors }" />
+                    <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                    <div *ngIf="submitted && f.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mr-1">Register</button>
+                    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+    
+            </form>
+        </div>
+    </div>
+    
+    
+</section>
+
+
+
+
+
+
+ 
